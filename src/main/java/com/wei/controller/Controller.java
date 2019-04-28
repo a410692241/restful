@@ -27,8 +27,8 @@ public class Controller {
      */
     @JsonView(User.UserAddSex.class)
     @GetMapping(value = "/getUserAddSex/{id}")
-    public User getUserAddSex(@PathVariable Integer id) {
-        return new User();
+    public Object getUserAddSex(@PathVariable Integer id) {
+        return "success";
     }
 
 

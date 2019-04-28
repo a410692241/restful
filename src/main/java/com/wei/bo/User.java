@@ -1,7 +1,9 @@
 package com.wei.bo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.wei.validator.Myconstraint;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
@@ -12,13 +14,14 @@ public class User {
 
     public interface UserAddSex extends UserUnId{}
     private Integer id;
-    @Myconstraint(message = "无论如何都报错")
+//    @Myconstraint(message = "无论如何都报错")
     @NotBlank(message = "用户名不能为空")
     private String username;
     private String password;
     private String sex;
     /*表示是过去的时间*/
     @Past(message = "生日必须是过去的时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date birthDay;
 
     @Override
